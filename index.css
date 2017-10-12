@@ -1,0 +1,62 @@
+
+#banner{
+	text-align: center;
+}
+
+#picker {
+	display: block;
+	margin: 0 auto;
+	background-color: #7bd1fc;
+	width: 100%;
+	height: 500px;
+	border: none;
+	font-size: 2em;
+	letter-spacing: 3px;
+}
+
+form{
+	margin: 20px;
+	text-align: center;
+}
+
+#color{
+	text-transform: uppercase;
+	color: gray;
+	padding: 11px;
+}
+
+#set_default{
+	border-radius: 5px;
+	padding: 11px;
+	background-color: #ddd;
+	font-size: 14px;
+	border: none;
+}
+
+#chartsContainer{
+	display: flex;
+	justify-content:center;
+}
+
+.chart{
+	margin: 15px;
+}
+
+h1{
+	text-align: center;
+	text-transform: uppercase;
+	margin: 30px;
+	margin-top: 50px;
+}
+
+p{
+	color: #474747;
+	letter-spacing: .5px;
+	margin: 20px;
+	line-height: 1.3;
+}
+
+#about{
+	width: 88%;
+	margin: 0 auto;
+}
