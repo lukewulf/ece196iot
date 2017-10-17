@@ -1,29 +1,45 @@
-<?php
+if (isset($_POST['set_default'])){
+	$color_data->insert($_POST['color']);
+}
 
-?>
+$red = new GPIO(22,"out",4);
+$green = new GPIO(27,"out",3);
+$blue = new GPIO(17, "out", 1);
+$colorArray = $color.str_split();
+
+$red->pwn_write(hexdec($colorArray[0].$colorArray[1]));
+$green->pwn_write(hexdec($colorArray[2].$colorArray[3]));
+$blue->pwn_write(hexdec($colorArray[4].$colorArray[5]));
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Team6b Intro to IoT</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
-	<script src="jscolor.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/index.css">
+	<script src="assets/js/jscolor.js"></script>
 </head>
 <body>
 
 <h1 id="banner">Color Picker</h1>
 
 <?php
+ 	include "GPIO.php";
 	include "header.php";
+
+	$color = "EFFFC9";
+	if(isset($_POST['set_color'])){
+		$color = $_POST['color'];
+	}
 ?>
 
 
 <!-- JSCOLOR PICKER -->
-<input type="button" class="jscolor" id="picker" value="7BD1FC">
+<input type="button" class="jscolor" id="picker" onfocusout="apply()" onchange="update(this.jscolor)" value=<?php echo "'" . $color . "'"; ?> >
 
 <!-- FORM -->
-<form>
-	<input type="text" id="color">
+<form method="POST">
+	<input type="text" id="color" name="color">
+	<input type="submit" id="smt" name="set_color" hidden>
 	<input type="submit" value="Set as Default" id="set_default">
 </form>
 
@@ -33,7 +49,7 @@
 	<canvas id="sound_chart" class="chart" height="350" width="550"></canvas>
 </div>
 
-<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="assets/js/index.js"></script>
 
 <!-- ABOUT -->
 
